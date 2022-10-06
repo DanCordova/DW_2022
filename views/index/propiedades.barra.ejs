@@ -1,19 +1,15 @@
 <div class="section">
     <div class="container">
+        <% if (propiedad.length > 0) { %>
         <div class="columns">
+            <% for (let p of propiedad  ) { %>
             <div class="column is-3">
-                <%- include('../propiedad/propiedad.ejs') %>
+                <%- include('../propiedad/propiedad.ejs', {propiedad: p}) %>
             </div>
-            <div class="column is-3">
-                <%- include('../propiedad/propiedad.ejs') %>  
-            </div>
-            <div class="column is-3">
-                <%- include('../propiedad/propiedad.ejs') %>
-            </div>
-            <div class="column is-3">
-                <%- include('../propiedad/propiedad.ejs') %>
-            </div>
+            <% } %>
         </div>
+        <% }  %>
     </div>
 </div>
     
+
