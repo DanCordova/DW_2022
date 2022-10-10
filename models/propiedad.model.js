@@ -16,8 +16,12 @@ module.exports = class Propiedad {
     }
 
     //Este método servirá para devolver los ultimos 4 objetos de la tabla 
-    static fetchNew() {
-        return db.execute('SELECT * FROM propiedades ORDER BY IdPropiedad DESC LIMIT 4');
+    static fetchAll() {
+        return db.execute('SELECT * FROM propiedades');
+    }
+
+    static fetchOne(id) {
+        return db.execute('SELECT * FROM propiedades WHERE IdPropiedad = ?', [id]);
     }
 
 }

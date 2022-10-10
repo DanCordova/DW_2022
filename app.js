@@ -9,23 +9,23 @@ app.set('view engine', 'ejs');
 //Definir la carpeta views como carpeta de vistas para ejs
 app.set('views', 'views');
 
-app.use(express.static(path.join(__dirname, 'public')));
 
+app.use(express.static(path.join(__dirname, 'public')));
 app.use(bodyParser.urlencoded({extended: false}));
+
+//Declarar rutas
+const rutasPropiedades = require('./routes/propiedad.routes');
+const rutasIndex = require('./routes/index.routes');
+const { response } = require('express');
+
+//Declarar app.use de las rutas
+app.use('/propiedades', rutasPropiedades);
+app.use('/index', rutasIndex);
 
 //Middleware
 app.use((request, response, next) => {
     console.log('Middleware!');
     next(); //Le permite a la petición avanzar hacia el siguiente middleware
-});
-
-const router = require('./routes/index.routes');
-const { response } = require('express');
-
-app.use('/index', router);
-
-app.get('/',(request, response, next) => {
-    response.redirect('/index');
 });
 
 app.use((request, response, next) => {
