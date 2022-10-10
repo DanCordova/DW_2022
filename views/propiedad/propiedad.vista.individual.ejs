@@ -1,13 +1,32 @@
 <%- include('../includes/head.ejs') %>
 
+
     <div class="container">
         <div class="content is-normal">
-            <h1><%= propiedad[0].Descripción %> </h1>
+            <span class="icon-text">
+                <span class="icon">
+                  <i class="fas fa-home"></i>
+                </span>
+                <span>Home</span>
+              </span>
+
+            <h1 class="m-0"><%= propiedad.Descripción %> </h1>
+            
+            <p class="pt-1"><%=propiedad.Estado %>, <%=propiedad.Municipio%>, <%=propiedad.Colonia%></p>
         </div>
     </div>
-    <div class="section is-small">
+
+    
+    <div class="section">
         <div class="container">
-        <%- include('collage.ejs', {propiedad: propiedad}) %>
+            <div class="columns">
+                <div class="column is-10">
+                    
+                </div>
+                <div class="column is-2">
+                    
+                </div>
+            </div>
         </div>
     </div>
 
