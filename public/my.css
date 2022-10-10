@@ -1,2 +1,18 @@
-@import '../node_modules/bulma/css/bulma.css';
-@import '../node_modules/bulma-o-steps/bulma-o-steps.css'
+.hero.banner  {
+	background-image: url('images/queretaro.webp') ;
+	background-size: cover;
+}
+
+
+.not-round {
+     border-top-right-radius: 15px;
+     border-top-left-radius: 15px;
+     border-bottom-right-radius: 0px;
+     border-bottom-left-radius: 0px;
+  }
+
+.not-round-search {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+ }
+  

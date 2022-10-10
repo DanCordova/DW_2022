@@ -22,7 +22,7 @@ exports.get_one = (request, response, next) => {
     Propiedad.fetchOne(request.params.id)
         .then( ([rows, fieldData]) => {
             console.log(rows);
-            response.render(path.join('propiedad', 'propiedad.ejs'), {
+            response.render(path.join('propiedad', 'propiedad.vista.individual.ejs'), {
                 propiedad: rows,
             }); 
 

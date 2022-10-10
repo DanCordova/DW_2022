@@ -1,10 +1,10 @@
 <div class="section">
     <div class="container">
         <% if (propiedad.length > 0) { %>
-        <div class="columns">
+        <div class="columns is-multiline">
             <% for (let p of propiedad  ) { %>
             <div class="column is-3">
-                <%- include('../propiedad/propiedad.ejs', {propiedad: p}) %>
+                <%- include('propiedad.ejs', {propiedad: p}) %>
             </div>
             <% } %>
         </div>
