@@ -19,11 +19,20 @@ exports.get_propiedades = (request, response, next) => {
 
 exports.get_one = (request, response, next) => {
     
+    Propiedad.isComercial(request.params.id).then( ([rows,fieldData]) => {
+        if (rows.length > 1){
+
+            response.render();
+        }
+    }).catch();
+
+    
+
     Propiedad.fetchOne(request.params.id)
         .then( ([rows, fieldData]) => {
             console.log(rows);
             response.render(path.join('propiedad', 'propiedad.vista.individual.ejs'), {
-                propiedad: rows[0   ],
+                propiedad: rows[0],
             }); 
 
         }).catch( (error) => {
