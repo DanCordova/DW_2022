@@ -16,11 +16,13 @@ app.use(bodyParser.urlencoded({extended: false}));
 //Declarar rutas
 const rutasPropiedades = require('./routes/propiedad.routes');
 const rutasIndex = require('./routes/index.routes');
+const rutasDashboard = require('./routes/dashboard.routes');
 const { response } = require('express');
 
 //Declarar app.use de las rutas
 app.use('/propiedades', rutasPropiedades);
 app.use('/index', rutasIndex);
+app.use('/dashboard', rutasDashboard);
 
 //Middleware
 app.use((request, response, next) => {
@@ -33,5 +35,10 @@ app.use((request, response, next) => {
     response.sendFile(path.join(__dirname, 'views', 'error.html'));
 });
 
+
+//
+let formatc = new Intl.NumberFormat("en-IN",
+{style: "currency", currency: "USD"}
+)
 
 app.listen(3000);
